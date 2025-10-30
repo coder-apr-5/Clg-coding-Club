@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --neon-green: #39ff14;
+    --neon-purple: #b537f2;
+  }
+}
+
+@layer components {
+  .glitch-text {
+    text-shadow: 
+      0 0 5px var(--neon-purple),
+      0 0 10px var(--neon-purple),
+      0 0 20px var(--neon-purple);
+    animation: glitch 2s infinite;
+  }
+}
+
+@keyframes glitch {
+  0% {
+    text-shadow: 
+      0 0 5px var(--neon-purple),
+      0 0 10px var(--neon-purple),
+      0 0 20px var(--neon-purple);
+  }
+  50% {
+    text-shadow: 
+      -2px 0 5px var(--neon-green),
+      2px 0 10px var(--neon-purple);
+  }
+  100% {
+    text-shadow: 
+      0 0 5px var(--neon-purple),
+      0 0 10px var(--neon-purple),
+      0 0 20px var(--neon-purple);
+  }
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  background-size: 100% 200%;
+  animation: gradient 3s ease infinite;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scrollVertical {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+.animate-scroll {
+  animation: scroll 20s linear infinite;
+}
+
+.animate-scroll-vertical {
+  animation: scrollVertical 15s linear infinite;
+}
+
+.dark {
+  color-scheme: dark;
+}
